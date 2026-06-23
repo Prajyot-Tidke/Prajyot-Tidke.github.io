@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prajyot Yogesh Tidke | Study Resources</title>
     <style>
+        /* CSS Variables for easy theming */
         :root {
             --bg-color: #f8fafc;
             --surface-color: #ffffff;
@@ -12,59 +13,184 @@
             --text-secondary: #475569;
             --accent-color: #2563eb;
             --border-color: #e2e8f0;
+            --hover-bg: #f1f5f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
             line-height: 1.6;
         }
 
-        /* Subtle Link Styling */
         a {
-            color: var(--text-secondary);
+            color: var(--accent-color);
             text-decoration: none;
-            border-bottom: 1px dotted var(--text-secondary);
-            transition: all 0.2s ease;
+            transition: color 0.2s ease;
         }
 
         a:hover {
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--accent-color);
+            text-decoration: underline;
         }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+        /* Typography */
+        h1, h2, h3 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
 
-        header { background: var(--surface-color); border-bottom: 1px solid var(--border-color); height: 4rem; display: flex; align-items: center; }
-        
-        .nav-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        
-        .logo { font-weight: bold; color: var(--text-primary); border: none; }
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
 
-        nav ul { display: flex; list-style: none; gap: 1.5rem; }
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
 
-        .hero { text-align: center; padding: 4rem 0; }
-        .hero h1 { font-size: 2rem; margin-bottom: 1rem; }
-        .hero p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+        /* Layout Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Hero / About Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 0 4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Resource Cards */
+        .resource-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
 
         .resource-card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 2rem;
-            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-        h2 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+        .resource-list {
+            list-style-type: none;
+        }
 
-        .resource-list { list-style: none; }
-        .resource-list li { margin-bottom: 0.8rem; color: var(--text-secondary); }
-        .resource-list li::before { content: "•"; color: var(--accent-color); margin-right: 0.5rem; }
+        .resource-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
 
-        footer { text-align: center; padding: 2rem; color: var(--text-secondary); font-size: 0.875rem; }
+        .resource-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .nav-content {
+                flex-direction: column;
+                justify-content: center;
+                gap: 1rem;
+                height: auto;
+                padding: 1rem 0;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 3rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -74,6 +200,7 @@
             <a href="#" class="logo">Prajyot Yogesh Tidke</a>
             <nav>
                 <ul>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#jee">JEE</a></li>
                     <li><a href="#sat">SAT</a></li>
                     <li><a href="#ielts">IELTS</a></li>
@@ -83,45 +210,79 @@
     </header>
 
     <main class="container">
-        <section class="hero">
+        
+        <section id="about" class="hero">
             <h1>Academic Resource Hub</h1>
-            <p>Curated study materials for JEE, SAT, and IELTS. Maintained to streamline preparation while balancing a busy academic schedule.</p>
+            <p>Hi, I'm Prajyot. I am currently in the 11th grade at Ashoka Universal School, studying under the ISC board. I've created this centralized hub to track and share the most effective study materials for JEE Mains & Advanced, as well as the SAT and IELTS for my future undergraduate studies abroad.</p>
         </section>
 
-        <section id="jee" class="resource-card">
-            <h2>JEE Mains & Advanced</h2>
-            <ul class="resource-list">
-                <li><strong>Physics:</strong> H.C. Verma (Vol 1 & 2) for mechanics; I.E. Irodov for advanced problems.</li>
-                <li><a href="https://www.youtube.com/playlist?list=PLxyGaR3hEy3ieFuXAdtlenRNcey9Cxo6I">Physics One-Shot Strategy</a></li>
-                <li><strong>Chemistry:</strong> NCERT Class 11 & 12 (JEE Integrated Syllabus).</li>
-                <li><a href="https://www.youtube.com/playlist?list=PLxyGaR3hEy3gO-zK_UUuhutbmf8sjIE1W">Chemistry One-Shot Strategy</a></li>
-                <li><strong>Mathematics:</strong> Cengage Learning (G. Tewani) for Calculus & Coordinate Geometry.</li>
-                <li><a href="https://www.examgoal.com/">Previous Years' Questions (PYQs) Database</a></li>
-            </ul>
-        </section>
+        <div class="resource-grid">
+            
+            <section id="jee" class="resource-card">
+                <h2>JEE Mains & Advanced</h2>
+                <p>Core materials supplementing standard IIT coaching curriculum for competitive engineering exams.</p>
+                <ul class="resource-list">
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><strong>Physics:</strong> Concepts of Physics by H.C. Verma (Vol 1 & 2) for foundational mechanics and electromagnetism.</li>
+                    <li><strong>Physics (Advanced):</strong> Problems in General Physics by I.E. Irodov for high-level problem solving.</li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLxyGaR3hEy3ieFuXAdtlenRNcey9Cxo6I">Complete PHYSICS in One Shot for JEE Main + Advanced</a></li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><a href="https://ncert.nic.in/textbook.php?kech1=0-6"><strong>Chemistry:</strong> NCERT textbooks for strictly adhering to the Class 11th and JEE(INTEGRATED) chemistry syllabus.</a></li>
+                    <li><a href="https://ncert.nic.in/textbook.php?lech2=0-5"><strong>Chemistry:</strong> NCERT textbooks for strictly adhering to the Class 12th and JEE(INTEGRATED) chemistry syllabus.</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLxyGaR3hEy3gO-zK_UUuhutbmf8sjIE1W">Complete CHEMISTRY in One Shot for JEE Main + Advanced</a></li>
+                   <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><strong>Mathematics:</strong> Cengage Learning series (G. Tewani) for comprehensive calculus and coordinate geometry.</li>
+                    <li><a href="https://www.examgoal.com/"><strong>Mock Tests:</strong> Previous Years' Questions (PYQs) from the last 10 years for exam pattern familiarity.</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLxyGaR3hEy3jdiBTjrVTLKf_SU-0pammW">Complete MATHS in One Shot for JEE Main + Advanced</a></li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                </ul>
+            </section>
 
-        <section id="sat" class="resource-card">
-            <h2>SAT Preparation</h2>
-            <ul class="resource-list">
-                <li><a href="https://bluebook.collegeboard.org/">Official Bluebook Adaptive Practice Tests</a></li>
-                <li><a href="https://www.khanacademy.org/">Khan Academy Digital SAT Course</a></li>
-                <li><a href="https://thecollegepanda.com/categories/sat-math/">College Panda SAT Math Review</a></li>
-                <li><strong>Grammar:</strong> Erica Meltzer's SAT Grammar Guide.</li>
-            </ul>
-        </section>
+            <section id="sat" class="resource-card">
+                <h2>SAT Preparation</h2>
+                <p>Digital SAT strategies focusing on the Reading/Writing and Math modules.</p>
+                <ul class="resource-list">
+                    <li>_________________________________________________________________________________________________________________________________________________ </li
+                    <li><a href="https://bluebook.collegeboard.org/"><strong>Official Practice:</strong> The College Board Bluebook app for full-length adaptive practice tests.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li
+                    <li><a href="https://www.khanacademy.org/"><strong>Targeted Drills:</strong> Khan Academy's official Digital SAT course for personalized skill-building.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li
+                    <li><a href="https://thecollegepanda.com/categories/sat-math/"><strong>Math Review:</strong> College Panda's SAT Math for advanced algebraic concepts and problem-solving shortcuts.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li
+                    <li><strong>English Grammar:</strong> Erica Meltzer's SAT Grammar guide for mastering standard English conventions.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li
+                    <li><strong>Vocabulary:</strong> Curated Quizlet flashcards targeting high-frequency SAT vocabulary in context.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li
+                </ul>
+            </section>
 
-        <section id="ielts" class="resource-card">
-            <h2>IELTS Prep</h2>
-            <ul class="resource-list">
-                <li><a href="https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/ielts#resources">Cambridge IELTS Academic Books (11-18)</a></li>
-                <li><a href="https://www.youtube.com/playlist?list=PLOSo0A8ngEXWhD3_yisOF0qBB4e6sWx01">IELTS Liz: Writing Task 1 & 2 Strategies</a></li>
-                <li><strong>Listening:</strong> BBC 6 Minute English (Comprehension practice).</li>
-            </ul>
-        </section>
+            <section id="ielts" class="resource-card">
+                <h2>IELTS Prep</h2>
+                <p>Frameworks and practice tests to secure a high band score across all four language modules.</p>
+                <ul class="resource-list">
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><a href="https://www.cambridge.org/gb/cambridgeenglish/catalog/cambridge-english-exams-ielts/ielts#resources"><strong>Authentic Tests:</strong> Cambridge IELTS Academic Student's Books (11 through 18) for realistic exam conditions.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLOSo0A8ngEXWhD3_yisOF0qBB4e6sWx01"><strong>Writing Strategy:</strong> IELTS Liz online tutorials for structuring Task 1 (Data).</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLOSo0A8ngEXUNqNesQ6cFtmtsL95UZWYh"><strong>Writing Strategy:</strong> IELTS Liz online tutorials for structuring Task 2 (Essays).</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><strong>Speaking Practice:</strong> Mock interview prompts focusing on current cue card topics to build fluency.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><strong>Listening:</strong> BBC 6 Minute English podcasts to improve comprehension of various accents at natural speeds.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                    <li><strong>Reading:</strong> Strategies for skimming, scanning, and identifying True/False/Not Given traps.</li>
+                    <li>_________________________________________________________________________________________________________________________________________________ </li>
+                </ul>
+            </section>
+
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Prajyot Yogesh Tidke. Hosted on GitHub Pages.</p>
+        <div class="container">
+            <p>&copy; 2026 Prajyot Yogesh Tidke. Hosted on GitHub Pages.</p>
+        </div>
     </footer>
 
 </body>
