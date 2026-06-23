@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajyot Yogesh Tidke | Study Resources</title>
+    <style>
+        /* CSS Variables for easy theming */
+        :root {
+            --bg-color: #f8fafc;
+            --surface-color: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --accent-color: #2563eb;
+            --border-color: #e2e8f0;
+            --hover-bg: #f1f5f9;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Hero / About Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 0 4rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Resource Cards */
+        .resource-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+
+        .resource-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .resource-list {
+            list-style-type: none;
+        }
+
+        .resource-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .resource-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .nav-content {
+                flex-direction: column;
+                justify-content: center;
+                gap: 1rem;
+                height: auto;
+                padding: 1rem 0;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <a href="#" class="logo">Prajyot Yogesh Tidke</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#jee">JEE</a></li>
+                    <li><a href="#sat">SAT</a></li>
+                    <li><a href="#ielts">IELTS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="about" class="hero">
+            <h1>Academic Resource Hub</h1>
+            <p>Hi, I'm Prajyot. I am currently in the 11th grade at Ashoka Universal School, studying under the ISC board. I've created this centralized hub to track and share the most effective study materials for JEE Mains & Advanced, as well as the SAT and IELTS for my future undergraduate studies abroad.</p>
+        </section>
+
+        <div class="resource-grid">
+            
+            <section id="jee" class="resource-card">
+                <h2>JEE Mains & Advanced</h2>
+                <p>Core materials supplementing standard IIT coaching curriculum for competitive engineering exams.</p>
+                <ul class="resource-list">
+                    <li><strong>Physics:</strong> Concepts of Physics by H.C. Verma (Vol 1 & 2) for foundational mechanics and electromagnetism.</li>
+                    <li><strong>Physics (Advanced):</strong> Problems in General Physics by I.E. Irodov for high-level problem solving.</li>
+                    <li><strong>Chemistry:</strong> NCERT textbooks for strictly adhering to the inorganic chemistry syllabus.</li>
+                    <li><strong>Chemistry (Organic):</strong> MS Chouhan for extensive reaction mechanism practice.</li>
+                    <li><strong>Mathematics:</strong> Cengage Learning series (G. Tewani) for comprehensive calculus and coordinate geometry.</li>
+                    <li><strong>Mock Tests:</strong> Previous Years' Questions (PYQs) from the last 10 years for exam pattern familiarity.</li>
+                </ul>
+            </section>
+
+            <section id="sat" class="resource-card">
+                <h2>SAT Preparation</h2>
+                <p>Digital SAT strategies focusing on the Reading/Writing and Math modules.</p>
+                <ul class="resource-list">
+                    <li><strong>Official Practice:</strong> The College Board Bluebook app for full-length adaptive practice tests.</li>
+                    <li><strong>Targeted Drills:</strong> Khan Academy's official Digital SAT course for personalized skill-building.</li>
+                    <li><strong>Math Review:</strong> College Panda's SAT Math for advanced algebraic concepts and problem-solving shortcuts.</li>
+                    <li><strong>English Grammar:</strong> Erica Meltzer's SAT Grammar guide for mastering standard English conventions.</li>
+                    <li><strong>Vocabulary:</strong> Curated Quizlet flashcards targeting high-frequency SAT vocabulary in context.</li>
+                </ul>
+            </section>
+
+            <section id="ielts" class="resource-card">
+                <h2>IELTS Prep</h2>
+                <p>Frameworks and practice tests to secure a high band score across all four language modules.</p>
+                <ul class="resource-list">
+                    <li><strong>Authentic Tests:</strong> Cambridge IELTS Academic Student's Books (11 through 18) for realistic exam conditions.</li>
+                    <li><strong>Writing Strategy:</strong> IELTS Liz online tutorials for structuring Task 1 (Data) and Task 2 (Essays).</li>
+                    <li><strong>Speaking Practice:</strong> Mock interview prompts focusing on current cue card topics to build fluency.</li>
+                    <li><strong>Listening:</strong> BBC 6 Minute English podcasts to improve comprehension of various accents at natural speeds.</li>
+                    <li><strong>Reading:</strong> Strategies for skimming, scanning, and identifying True/False/Not Given traps.</li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Prajyot Yogesh Tidke. Hosted on GitHub Pages.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
